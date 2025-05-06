@@ -9,6 +9,7 @@ Seismic impedance inversion is essential for subsurface exploration, facilitatin
 <p align="center">
   <img src="net1_xiugai.png" alt="Inversion Result" width="80%">
 </p>
+*Figure. (a) The workflow of the optimization model, which updates gradient using deep learning model at each iteration. (b) U-shaped Swin Transformer Net (USTNet). (c) A swin transformer block (ST block).*
 
 ### 🎯 Comparison of the inversion results with different model and different lteration times.
 
