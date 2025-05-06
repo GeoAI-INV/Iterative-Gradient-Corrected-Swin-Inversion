@@ -8,7 +8,7 @@ Seismic impedance inversion is essential for subsurface exploration, facilitatin
 
 ## 📊 Some Results
 
-### Inversion Result Example
+### 🎯 Comparison of the inversion results with different model and different lteration times.
 
 <p align="center">
   <img src="11.png" alt="Inversion Result" width="80%">
