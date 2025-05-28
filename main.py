@@ -66,11 +66,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # # ---------------------------------------------------------------Train and inference
-    # 参数说明：
-    # 1. marimous模型：
+    # Parameters：
+    # 1. marimous model：
     #    - labels: [200, 500, 750, 1100] - batch size: 32 in ustnet - patch size: [256, 256] - stride: [30, 30] - get_low: [400, 180] - win_size: 8
     #    - learning rate: 1e-3~1e-6 - max epoch: 200
-    # 2. seam模型：
+    # 2. seam model：
     #    - labels: [150, 300, 450, 600, 750] - batch size: 32 in ustnet - patch size: [256, 256] - stride: [30, 30] - get_low: [100, 50] - win_size: 8
     #    - learning rate: 1e-3 or 1e-4~1e-5 - max epoch: 200
     # below is an example of how to set the parameters for training and testing the model.
@@ -109,7 +109,7 @@ if __name__ == '__main__':
     hours, remainder = divmod(total_time, 3600)
     minutes, seconds = divmod(remainder, 60)
     print(f"Total time: {int(hours)}h{int(minutes)}min{seconds:.2f}s")
-    predicted_imp, true_imp, ture_low, predicted_imp0 = test(args) # the last iter->predicted_imp
+    predicted_imp, true_imp, ture_low, predicted_imp0 = test(args)  # the last iter->predicted_imp
     print(predicted_imp.shape)
 
     Save(predicted_imp, save_name)

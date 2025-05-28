@@ -47,11 +47,11 @@ def single_snr(signal, noise_data):
 
 
 def batch_snr(pre_data, clean_data):
-    Pre_data = pre_data.cpu().numpy()  # detach().
+    Pre_data = pre_data.cpu().numpy()  
     Clean_data = clean_data.data.cpu().numpy()
     SNR = 0
     for i in range(Pre_data.shape[0]):
-        Pre = Pre_data[i, :, :, :].squeeze()  # 默认压缩所有为1的维度
+        Pre = Pre_data[i, :, :, :].squeeze()  
         Clean = Clean_data[i, :, :, :].squeeze()
         SNR += psnr(Pre, Clean, data_range=Clean.max() - Clean.min())
     return SNR / Pre_data.shape[0]

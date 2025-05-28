@@ -296,7 +296,7 @@ class eca_layer_1d(nn.Module):
         return flops
 
 
-class LeFF(nn.Module):
+class CeMLP(nn.Module):
     def __init__(self, dim=32, hidden_dim=128, act_layer=nn.GELU, drop=0., use_eca=False):
         super().__init__()
         self.linear1 = nn.Sequential(nn.Linear(dim, hidden_dim),
@@ -328,7 +328,7 @@ class LeFF(nn.Module):
         flops += H * W * self.hidden_dim * 3 * 3
         # fc2
         flops += H * W * self.hidden_dim * self.dim
-        print("LeFF:{%.2f}" % (flops / 1e9))
+        print("CeMLP:{%.2f}" % (flops / 1e9))
         # eca
         if hasattr(self.eca, 'flops'):
             flops += self.eca.flops()
@@ -338,7 +338,7 @@ class LeFF(nn.Module):
 class SwinTransformerBlock(nn.Module):
     def __init__(self, dim, input_resolution, num_heads, win_size=8, shift_size=0,
                  mlp_ratio=4., qkv_bias=True, qk_scale=None, drop=0., attn_drop=0., drop_path=0.,
-                 act_layer=nn.GELU, norm_layer=nn.LayerNorm, token_mlp='leff',
+                 act_layer=nn.GELU, norm_layer=nn.LayerNorm, token_mlp='cemlp',
                  modulator=False):
         super().__init__()
         self.dim = dim
@@ -368,8 +368,8 @@ class SwinTransformerBlock(nn.Module):
         mlp_hidden_dim = int(dim * mlp_ratio)
         if token_mlp in ['ffn', 'mlp']:
             self.mlp = Mlp(in_features=dim, hidden_features=mlp_hidden_dim, act_layer=act_layer, drop=drop)
-        elif token_mlp == 'leff':
-            self.mlp = LeFF(dim, mlp_hidden_dim, act_layer=act_layer, drop=drop)
+        elif token_mlp == 'cemlp':
+            self.mlp = CeMLP(dim, mlp_hidden_dim, act_layer=act_layer, drop=drop)
         else:
             raise Exception("FFN error!")
 
@@ -559,7 +559,7 @@ class ScaBlock(nn.Module):
         self.drop_path = DropPath(drop_path) if drop_path > 0. else nn.Identity()
         self.norm2 = norm_layer(dim)
         mlp_hidden_dim = int(dim * mlp_ratio)
-        self.mlp = LeFF(dim, mlp_hidden_dim, act_layer=act_layer, drop=drop)
+        self.mlp = CeMLP(dim, mlp_hidden_dim, act_layer=act_layer, drop=drop)
 
     def forward(self, x):
         x = x + self.drop_path(self.attn(self.norm1(x)))
@@ -1044,12 +1044,14 @@ class AESTMNet_1(nn.Module):
 
 def pad_to_multiple(x, multiple):
     """
-    对输入进行动态补零，使其大小为指定倍数的整数倍。
+    Dynamically pads the input so that its spatial dimensions become multiples of a specified value.
+
     Args:
-        x (torch.Tensor): 输入张量，形状为 (B, C, H, W)。
-        multiple (int): 希望补零后的大小为 multiple 的整数倍。
+        x (torch.Tensor): Input tensor with shape (B, C, H, W).
+        multiple (int): The desired multiple that the height and width should be padded to.
+
     Returns:
-        padded_x (torch.Tensor): 补零后的张量。
+        padded_x (torch.Tensor): The zero-padded tensor.
     """
     H, W = x.shape[-2], x.shape[-1]
     pad_h = (multiple - H % multiple) % multiple

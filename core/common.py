@@ -146,8 +146,8 @@ def dip_loss(x, angle, args, weight, weight1):
     dip_sin = torch.sin(torch.deg2rad(angle))
     dx = torch.gradient(x, dim=3)[0]
     dz = torch.gradient(x, dim=2)[0]
-    d1 = dip_cos * dx + dip_sin * dz  # 沿倾角方向
-    d2 = -dip_sin * dx + dip_cos * dz  # 垂直倾角方向
+    d1 = dip_cos * dx + dip_sin * dz  
+    d2 = -dip_sin * dx + dip_cos * dz  
     return torch.mean(weight * torch.abs(d1)) + torch.mean(weight1 * torch.abs(d2))
 
 

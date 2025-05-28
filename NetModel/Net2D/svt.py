@@ -9,7 +9,7 @@ from timm.models.vision_transformer import _cfg
 import math
 import numpy as np
 from pytorch_wavelets import DTCWTForward, DTCWTInverse
-
+# this is modified from https://github.com/badripatro/svt
 class SVT_channel_mixing(nn.Module):
     def __init__(self, dim):
         super().__init__()

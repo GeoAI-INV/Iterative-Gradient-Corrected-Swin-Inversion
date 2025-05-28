@@ -56,7 +56,7 @@ class Avoforwardblock():
         self.snr_db = snr_db
         self.vsvp = 0.5
         self.ntheta = 3
-        thetamin, thetamax = 5, 25  # 不能超过33° 超过后相位反转
+        thetamin, thetamax = 5, 25  
         self.theta = np.linspace(thetamin, thetamax, self.ntheta)
 
     def wavelet(self):
@@ -98,12 +98,12 @@ if __name__ == '__main__':
         "font.family": 'serif',
         "mathtext.fontset": 'stix',
         "font.serif": ['Times New Roman'],
-        'xtick.labelsize': 18,  # x轴刻度标签字体大小
-        'ytick.labelsize': 18,  # y轴刻度标签字体大小
-        'axes.labelsize': 24,  # 坐标轴标签字体大小
-        'legend.fontsize': 18,  # 图例字体大小
-        'figure.dpi': 400,  # 分辨率
-        'figure.facecolor': 'w',  # 背景颜色
+        'xtick.labelsize': 18,  
+        'ytick.labelsize': 18,  
+        'axes.labelsize': 24,  
+        'legend.fontsize': 18,  
+        'figure.dpi': 400,  
+        'figure.facecolor': 'w'
     })
     patch_size = [256, 256]
     stride = [30, 30]
@@ -138,14 +138,14 @@ if __name__ == '__main__':
     # ax.plot(syn3[:, 20], label='coh')
     # ax.legend()
     # ax.set_title('Single Trace ma')
-    # plt.tight_layout()  # 自适应调整布局
+    # plt.tight_layout()  
 
     # fig, ax = plt.subplots(figsize=(10, 6))
     # ax.plot(patch_syn[5,0,:,3], label='real')
     # ax.plot(pytorch_conv[5,0,:,3], label='pytorch')
     # ax.legend()
     # ax.set_title('Single Trace ma')
-    # plt.tight_layout()  # 自适应调整布局
+    # plt.tight_layout()  
     # plt.show()
 
     # wav=synblock.wavelet()
@@ -183,7 +183,7 @@ if __name__ == '__main__':
     # ax.plot(pytorch_conv[0,0,:,3], label='pytorch')
     # ax.legend()
     # ax.set_title('Single Trace ma')
-    # plt.tight_layout()  # 自适应调整布局
+    # plt.tight_layout()  
 
     # plt.show()
     # fig, ax = plt.subplots(figsize=(10, 6))
@@ -191,7 +191,7 @@ if __name__ == '__main__':
     # ax.plot(pytorch_conv[1,0,:,3], label='pytorch')
     # ax.legend()
     # ax.set_title('Single Trace ma')
-    # plt.tight_layout()  # 自适应调整布局
+    # plt.tight_layout()  
 
     # plt.show()
     # fig, ax = plt.subplots(figsize=(10, 6))
@@ -199,7 +199,7 @@ if __name__ == '__main__':
     # ax.plot(pytorch_conv[2,0,:,3], label='pytorch')
     # ax.legend()
     # ax.set_title('Single Trace ma')
-    # plt.tight_layout()  # 自适应调整布局
+    # plt.tight_layout() 
     # plt.show()
 
     # fig, ax = plt.subplots(figsize=(10, 6))
@@ -207,7 +207,7 @@ if __name__ == '__main__':
     # ax.plot(pytorch_conv[5,0,:,3], label='pytorch')
     # ax.legend()
     # ax.set_title('Single Trace ma')
-    # plt.tight_layout()  # 自适应调整布局
+    # plt.tight_layout()  
     # plt.show()
 
     # fig, ax = plt.subplots(figsize=(10, 6))
@@ -215,19 +215,19 @@ if __name__ == '__main__':
     # ax.plot(rec_real[:,3], label='pytorch')
     # ax.legend()
     # ax.set_title('Single Trace ma')
-    # plt.tight_layout()  # 自适应调整布局
+    # plt.tight_layout()  
     # plt.show()
 
     # synblock_check = forwardblock(logimp[:112,:112], f0=30, dt=0.001, wave_len=51, noise_sd=0)
     # err=pytorch_conv[0,0,:,:]-synblock_check.cleansyn()
     # plt.figure(figsize=(10, 6))
     # plt.imshow(synblock_check.cleansyn(), 'seismic')
-    # plt.tight_layout()  # 调整子图布局，减少空白区域
+    # plt.tight_layout()  
     # plt.title('Predict unet IMP')
     # plt.show()
     # plt.figure(figsize=(10, 6))
     # plt.imshow(pytorch_conv[0,0,:,:], 'seismic')
-    # plt.tight_layout()  # 调整子图布局，减少空白区域
+    # plt.tight_layout() 
     # plt.title('Predict unet IMP')
     # plt.show()
 
@@ -236,5 +236,5 @@ if __name__ == '__main__':
     # ax.plot(synblock_check.cleansyn()[:,111], label='pytorch')
     # ax.legend()
     # ax.set_title('Single Trace ma')
-    # plt.tight_layout()  # 自适应调整布局
+    # plt.tight_layout()  
     # plt.show()

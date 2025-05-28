@@ -238,7 +238,7 @@ imp_re_masked = np.ma.masked_where(imp_re == 0, imp_re)
 data = np.exp(imp_re_masked)
 vmin = 6150
 vmax = 7550
-col_index = 58  # 注意：Python索引从0开始，所以第59列是索引58
+col_index = 58  
 column_values = data[:, col_index]
 fig, ax = plt.subplots()
 plt.imshow(data, cmap=cmap, aspect='auto', vmin=vmin, vmax=vmax)
@@ -308,7 +308,7 @@ plt.show()
 #     ax.set_xlabel('Time (ms)')
 #     ax.legend()
 #     ax.set_title(f'CDP {i}')
-#     plt.tight_layout()  # 自适应调整布局
+#     plt.tight_layout()  
 #     plt.show()
 
 
@@ -317,14 +317,14 @@ plt.show()
 # # ax.plot(m, label='real')
 # # ax.plot(wave_inv, label='estimate')
 # ax.legend()
-# plt.tight_layout()  # 自适应调整布局
+# plt.tight_layout() 
 # plt.show()
 
 # fig, ax = plt.subplots(figsize=(8, 4))
 # ax.plot(imp1[:,0], label='real')
 # ax.plot(implow[:,0], label='estimate')
 # ax.legend()
-# plt.tight_layout()  # 自适应调整布局
+# plt.tight_layout()  
 # plt.show()
 
 # bar_title = r'Impedance ($\mathrm{g/cm^3 \cdot km/s}$)'
@@ -335,8 +335,3 @@ plt.show()
 # cbar = plt.colorbar(fraction= 0.05 * imp1.shape[0] / imp1.shape[1], pad=0.02)
 # cbar.set_label(bar_title)
 
-
-m = torch.tensor(imp).unsqueeze(0).unsqueeze(0).type(torch.float32)
-
-for i in range(1):
-    print(i)
