@@ -20,3 +20,5 @@ Seismic impedance inversion is essential for subsurface exploration, facilitatin
   <img src="11.png" alt="Inversion Result" width="80%">
 </p>
 
+### Citation
+If you find our work useful, please consider citing
