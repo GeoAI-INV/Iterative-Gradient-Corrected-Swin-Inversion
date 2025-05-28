@@ -2,7 +2,7 @@
 Created on Mon Jun 17 17:02:43 2024
 @author: Pang Qi
 Notice: The code about 'SwinTransformerBlock' is rewritten from the original implementation available at:
-        https://github.com/JingyunLiang/SwinIR
+        https://github.com/ZhendongWang6/Uformer
 Intro:  'STMNet_1' - USTNet 
         'STMNet_1_all' - USTNet with any inputsize
 """

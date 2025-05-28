@@ -20,6 +20,3 @@ Seismic impedance inversion is essential for subsurface exploration, facilitatin
   <img src="11.png" alt="Inversion Result" width="80%">
 </p>
 
-### Notation
-
-Swin Transformer is rewritten from the original implementation available at: https://github.com/JingyunLiang/SwinIR
