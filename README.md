@@ -22,5 +22,13 @@ Seismic impedance inversion is essential for subsurface exploration, facilitatin
 
 ### 🧷 Citation
 
-If you find our work useful, please consider citing
+If you find our work useful, please consider citing:
 
+```bibtex
+@article{pang2025iterative,
+  title     = {Iterative Gradient Corrected Semi-Supervised Seismic Impedance Inversion via Swin Transformer},
+  author    = {Pang, Qi and Chen, Hongling and Gao, Jinghuai and Wang, Zhiqiang and Yang, Ping},
+  journal   = {IEEE Transactions on Geoscience and Remote Sensing},
+  year      = {2025},
+  publisher = {IEEE}
+}
